@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feliç aniversari bonica!</title>
+  
+  <!-- Favicon autocontingut (Guitarra elèctrica retro 🎸) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎸</text></svg>">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts per a estil retro/indie -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Permanent+Marker&family=Special+Elite&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      background-color: #121212;
+      color: #e5e5e5;
+      font-family: 'Courier Prime', monospace;
+    }
+    .font-marker {
+      font-family: 'Permanent Marker', cursive;
+    }
+    .font-vintage {
+      font-family: 'Special Elite', cursive;
+    }
+    /* Estil Polaroid */
+    .polaroid {
+      background: #fbfbf9;
+      padding: 12px 12px 24px 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5), 0 4px 10px rgba(0,0,0,0.4);
+      transform: rotate(var(--r, 0deg)) scale(1);
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      color: #1c1c1c;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+    }
+    .polaroid:hover {
+      transform: rotate(0deg) scale(1.03) translateY(-8px);
+      z-index: 30;
+      box-shadow: 0 20px 35px rgba(0,0,0,0.7);
+    }
+    /* OPTIMITZACIÓ CRÍTICA PER A GITHUB PAGES / ENTORNS DE PRODUCCIÓ REALS */
+    .polaroid img {
+      will-change: filter, transform;
+      transform: translateZ(0);
+      -webkit-transform: translateZ(0);
+      transition: filter 0.5s ease-in-out, transform 0.5s ease-in-out;
+    }
+    /* Textura de paper vell / diari */
+    .bg-scrapbook {
+      background-color: #1a1a1a;
+      background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 0);
+      background-size: 24px 24px;
+    }
+    /* Efecte de cinta adhesiva */
+    .tape {
+      background-color: rgba(242, 230, 194, 0.7);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      transform: rotate(-2deg);
+    }
+  </style>
+</head>
+<body class="bg-scrapbook min-h-screen antialiased pb-12 selection:bg-amber-500 selection:color-black">
+
+  <!-- Encapçalament / Bitllet de Regal Estil Entrada de Concert Antiga -->
+  <header class="max-w-6xl mx-auto px-4 pt-8 pb-4">
+    <div class="border-2 border-dashed border-zinc-700 p-6 rounded-xl bg-zinc-900/60 backdrop-blur-sm relative overflow-hidden">
+      <!-- Decoració Retro Vinilo -->
+      <div class="absolute -right-16 -top-16 w-40 h-40 bg-zinc-800 rounded-full border-4 border-zinc-700 opacity-20 hidden md:block"></div>
+      
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+        <div>
+          <span class="inline-block bg-amber-500 text-black font-bold text-xs px-3 py-1 uppercase tracking-widest rounded mb-2">CUPÓ D'EXPERIÈNCIA COMPLETA</span>
+          <h1 class="text-3xl md:text-5xl font-vintage tracking-tight text-white mb-2">MANCHESTER IS MINE</h1>
+          <p class="text-zinc-400 text-sm max-w-xl">Un viatge visual interactiu pels racons emblemàtics que van inspirar les lletres melancòliques i els acords eterns de <span class="text-amber-400 font-bold">The Smiths</span>.</p>
+        </div>
+        
+        <!-- Targeta de Regal Personalitzada -->
+        <div class="w-full md:w-auto bg-zinc-800 p-4 border border-zinc-700 rounded-lg shadow-inner">
+          <div class="text-xs uppercase text-zinc-500 font-bold mb-1 tracking-wider text-amber-400">CUPÓ D'EXPERIÈNCIA COMPLETA</div>
+          <div class="text-sm text-zinc-300 grid grid-cols-2 gap-x-4 gap-y-1">
+            <div><span class="text-zinc-500">Per a:</span> <span class="text-amber-400 font-bold">Una Fan Molt Especial</span></div>
+            <div><span class="text-zinc-500">De:</span> <span class="text-white">Algú que t'estima</span></div>
+            <div class="col-span-2 mt-2 pt-2 border-t border-zinc-700 text-xs text-zinc-400">
+              ⚡ Inclou: El recorregut guiat oficial de 3 hores + estada al cor de la ciutat.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- VISTA 1: PORTADA PRINCIPAL EN QUADRÍCULA REORDENADA -->
+  <div id="view-main" class="max-w-6xl mx-auto px-4 py-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 items-start relative transition-all duration-500">
+    
+    <!-- PASAPORTE 1: La Estancia (Motel One Royal Exchange) -->
+    <div class="transform hover:scale-105 transition duration-300" style="--r: -1deg;" onclick="openModal('hotel')">
+      <div class="polaroid cursor-pointer border-2 border-amber-500/40 bg-zinc-50 p-5">
+        <div class="w-full h-72 overflow-hidden bg-zinc-800 relative rounded-sm">
+          <div class="absolute top-3 right-3 bg-amber-500 text-black font-mono font-bold text-xs px-2.5 py-1 rounded shadow z-10 uppercase tracking-wider">Estada</div>
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-32 h-6 tape opacity-90 z-10"></div>
+          <img src="https://images.unsplash.com/photo-1719917172970-35e84b9cc4f4?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" alt="Manchester Royal Exchange historic architecture clock tower" class="w-full h-full object-cover grayscale contrast-125 hover:grayscale-0">
+        </div>
+        <div class="mt-5 text-center">
+          <p class="font-marker text-2xl tracking-wide text-amber-600">I. El nostre allotjament</p>
+          <p class="text-xs text-zinc-600 uppercase tracking-widest mt-2 px-4 leading-relaxed">Motel One Royal Exchange<br>El nostre refugi a la Cottonopolis</p>
+          <span class="inline-block mt-4 text-[11px] font-bold bg-zinc-900 text-white px-4 py-1.5 rounded-md hover:bg-amber-500 hover:text-black transition tracking-wider shadow">Veure detalls de l'hotel →</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PASAPORTE 2: El Tour de The Smiths -->
+    <div class="transform hover:scale-105 transition duration-300" style="--r: 1deg;" onclick="openModalOrTour('tour')">
+      <div class="polaroid cursor-pointer border-2 border-zinc-300 bg-zinc-50 p-5">
+        <div class="w-full h-72 overflow-hidden bg-zinc-800 relative rounded-sm">
+          <div class="absolute top-3 right-3 bg-zinc-900 text-amber-400 font-mono font-bold text-xs px-2.5 py-1 rounded shadow z-10 uppercase tracking-wider">Tour</div>
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-32 h-6 tape opacity-90 z-10" style="transform: rotate(3deg);"></div>
+          <img src="https://images.unsplash.com/photo-1588934375041-0478480ae4c2?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" alt="Manchester city centre traditional street with iconic yellow and black Metrolink tram" class="w-full h-full object-cover grayscale contrast-115 hover:grayscale-0">
+        </div>
+        <div class="mt-5 text-center">
+          <p class="font-marker text-2xl tracking-wide text-zinc-900">II. La nostra ruta musical</p>
+          <p class="text-xs text-zinc-600 uppercase tracking-widest mt-2 px-4 leading-relaxed">Itinerari de llocs icònics<br>El recorregut guiat de 3 hores</p>
+          <span class="inline-block mt-4 text-[11px] font-bold bg-zinc-900 text-white px-4 py-1.5 rounded-md hover:bg-amber-500 hover:text-black transition tracking-wider shadow">⚡ ¡Obrir itinerari! ⚡</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PASAPORTE 3: Catedral de Mánchester -->
+    <div class="transform hover:scale-105 transition duration-300" style="--r: 2deg;" onclick="openModal('cathedral')">
+      <div class="polaroid cursor-pointer border-2 border-zinc-300 bg-zinc-50 p-5">
+        <div class="w-full h-72 overflow-hidden bg-zinc-800 relative rounded-sm">
+          <div class="absolute top-3 right-3 bg-zinc-900 text-amber-400 font-mono font-bold text-xs px-2.5 py-1 rounded shadow z-10 uppercase tracking-wider">Catedral</div>
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-32 h-6 tape opacity-90 z-10" style="transform: rotate(-1deg);"></div>
+          <img src="https://images.unsplash.com/photo-1678841653796-0de1da4bf3c2?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" alt="Manchester Cathedral gothic architecture exterior facade" class="w-full h-full object-cover grayscale contrast-120 hover:grayscale-0">
+        </div>
+        <div class="mt-5 text-center">
+          <p class="font-marker text-2xl tracking-wide text-zinc-900">III. La Catedral</p>
+          <p class="text-xs text-zinc-600 uppercase tracking-widest mt-2 px-4 leading-relaxed">Catedral de Manchester<br>Una joia medieval gòtica en ple centre</p>
+          <span class="inline-block mt-4 text-[11px] font-bold bg-zinc-900 text-white px-4 py-1.5 rounded-md hover:bg-amber-500 hover:text-black transition tracking-wider shadow">Veure detalls de la catedral →</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PASAPORTE 4: Museo de Ciencia e Industry -->
+    <div class="transform hover:scale-105 transition duration-300" style="--r: -1deg;" onclick="openModal('science')">
+      <div class="polaroid cursor-pointer border-2 border-zinc-300 bg-zinc-50 p-5">
+        <div class="w-full h-72 overflow-hidden bg-zinc-800 relative rounded-sm">
+          <div class="absolute top-3 right-3 bg-zinc-900 text-amber-400 font-mono font-bold text-xs px-2.5 py-1 rounded shadow z-10 uppercase tracking-wider">Ciència i Indústria</div>
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-32 h-6 tape opacity-90 z-10" style="transform: rotate(2deg);"></div>
+          <img src="https://images.unsplash.com/photo-1627226890711-fd1fdc35d77e?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" alt="Castlefield Manchester historic canal brickwork layout near Science museum" class="w-full h-full object-cover grayscale contrast-115 hover:grayscale-0">
+        </div>
+        <div class="mt-5 text-center">
+          <p class="font-marker text-2xl tracking-wide text-zinc-900">IV. Ciència i Indústria</p>
+          <p class="text-xs text-zinc-600 uppercase tracking-widest mt-2 px-4 leading-relaxed">Science & Industry Museum<br>El bressol ferroviari mundial de 1830</p>
+          <span class="inline-block mt-4 text-[11px] font-bold bg-zinc-900 text-white px-4 py-1.5 rounded-md hover:bg-amber-500 hover:text-black transition tracking-wider shadow">Veure detalls històrics →</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PASAPORTE 5: El Nostre Festí de Pub -->
+    <div class="transform hover:scale-105 transition duration-300" style="--r: -2deg;" onclick="openModal('pubfeast')">
+      <div class="polaroid cursor-pointer border-2 border-emerald-600/30 bg-zinc-50 p-5">
+        <div class="w-full h-72 overflow-hidden bg-zinc-800 relative rounded-sm">
+          <div class="absolute top-3 right-3 bg-emerald-700 text-white font-mono font-bold text-xs px-2.5 py-1 rounded shadow z-10 uppercase tracking-wider">Festí</div>
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-32 h-6 tape opacity-90 z-10" style="transform: rotate(-2deg);"></div>
+          <img src="https://www.simanchester.com/wp-content/uploads/2019/08/IMG_5568.jpeg" alt="Traditional Manchester pub meal sausages and mash potato inside giant yorkshire pudding bowl with cauliflower gravy" class="w-full h-full object-cover grayscale contrast-110 hover:grayscale-0">
+        </div>
+        <div class="mt-5 text-center">
+          <p class="font-marker text-2xl tracking-wide text-emerald-700">V. El Festí</p>
+          <p class="text-xs text-zinc-600 uppercase tracking-widest mt-2 px-4 leading-relaxed">Pastís de carn i birra local<br>El nostre tiberi tradicional<br>Té pintaca, eh?!</p>
+          <span class="inline-block mt-4 text-[11px] font-bold bg-zinc-900 text-white px-4 py-1.5 rounded-md hover:bg-amber-500 hover:text-black transition tracking-wider shadow">Veure què menjarem →</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- VISTA 2: EL COLLAGE DESPLEGABLE CON LAS PARADAS DEL TOUR -->
+  <div id="view-tour" class="hidden max-w-6xl mx-auto px-4 transition-all duration-500">
+    
+    <!-- Barra de retorno y controles -->
+    <div class="flex flex-col sm:flex-row justify-between items-center gap-4 mb-8 bg-zinc-900/40 p-4 border border-zinc-800 rounded-xl backdrop-blur-sm">
+      <button onclick="showMainView()" class="flex items-center gap-2 px-4 py-1.5 text-xs font-bold font-mono text-zinc-400 hover:text-white bg-zinc-800 hover:bg-zinc-700 rounded-lg transition border border-zinc-700">
+        ← Tornar als Passis Principals
+      </button>
+      
+      <div class="flex gap-2 flex-wrap justify-center">
+        <button onclick="filterCollage('all')" id="btn-all" class="px-4 py-1 text-xs uppercase tracking-wider font-bold rounded-md bg-amber-500 text-black border border-amber-500 transition">Totes les parades</button>
+        <button onclick="filterCollage('hitos')" id="btn-hitos" class="px-4 py-1 text-xs uppercase tracking-wider font-bold rounded-md bg-zinc-800 text-zinc-400 border border-zinc-700 hover:text-white transition">Portades i icones</button>
+        <button onclick="filterCollage('canciones')" id="btn-canciones" class="px-4 py-1 text-xs uppercase tracking-wider font-bold rounded-md bg-zinc-800 text-zinc-400 border border-zinc-700 hover:text-white transition">Inspiració de lletres</button>
+      </div>
+    </div>
+
+    <!-- Grid del Álbum de Recortes del Tour -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
+      
+      <!-- CARD 1: Salford Lads Club -->
+      <div class="collage-item hitos transform" style="--r: -2deg;" onclick="openModal('salford')">
+        <div class="polaroid cursor-pointer">
+          <div class="w-full h-64 overflow-hidden bg-zinc-200 relative">
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-24 h-6 tape opacity-80 z-10"></div>
+            <img src="https://images.unsplash.com/photo-1572107228262-52eb1c52d8b1?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" alt="Salford Lads Club Neighborhood Vibe" class="w-full h-full object-cover grayscale contrast-125 hover:grayscale-0">
+          </div>
+          <div class="mt-4 text-center">
+            <p class="font-marker text-xl tracking-wide text-zinc-900">Salford Lads Club</p>
+            <p class="text-[11px] text-zinc-500 uppercase tracking-widest mt-1">Parada #1 • El santuari interior</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 2: Strangeways Prison -->
+      <div class="collage-item hitos transform" style="--r: 3deg;" onclick="openModal('strangeways')">
+        <div class="polaroid cursor-pointer">
+          <div class="w-full h-64 overflow-hidden bg-zinc-200 relative">
+            <div class="absolute -top-3 left-1/3 -translate-x-1/2 w-20 h-6 tape opacity-80 z-10" style="transform: rotate(4deg);"></div>
+            <img src="https://images.unsplash.com/photo-1688133518830-192b45adaafe?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" alt="Strangeways Brick Walls Atmosphere" class="w-full h-full object-cover grayscale contrast-110 hover:grayscale-0">
+          </div>
+          <div class="mt-4 text-center">
+            <p class="font-marker text-xl tracking-wide text-zinc-900">Presó de Strangeways</p>
+            <p class="text-[11px] text-zinc-500 uppercase tracking-widest mt-1">Parada #2 • L'adéu final</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 3: Southern Cemetery -->
+      <div class="collage-item canciones transform" style="--r: -1deg;" onclick="openModal('cemetery')">
+        <div class="polaroid cursor-pointer">
+          <div class="w-full h-64 overflow-hidden bg-zinc-200 relative">
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-24 h-6 tape opacity-80 z-10" style="transform: rotate(-3deg);"></div>
+            <img src="https://images.unsplash.com/photo-1781986260475-f201d59e7a15?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" alt="Gothic Cemetery Gravestones" class="w-full h-full object-cover grayscale sepia-[30%] hover:grayscale-0">
+          </div>
+          <div class="mt-4 text-center">
+            <p class="font-marker text-xl tracking-wide text-zinc-900">Southern Cemetery</p>
+            <p class="text-[11px] text-zinc-500 uppercase tracking-widest mt-1">Parada #3 • Cemetry Gates</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 4: Iron Bridge -->
+      <div class="collage-item canciones transform" style="--r: 2deg;" onclick="openModal('bridge')">
+        <div class="polaroid cursor-pointer">
+          <div class="w-full h-64 overflow-hidden bg-zinc-200 relative">
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-24 h-6 tape opacity-80 z-10" style="transform: rotate(2deg);"></div>
+            <img src="https://images.unsplash.com/photo-1706004469323-5817da084704?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" alt="Iron Structural Bridge View" class="w-full h-full object-cover grayscale contrast-125 hover:grayscale-0">
+          </div>
+          <div class="mt-4 text-center">
+            <p class="font-marker text-xl tracking-wide text-zinc-900">The Iron Bridge</p>
+            <p class="text-[11px] text-zinc-500 uppercase tracking-widest mt-1">Parada #4 • Un petó sota el ferro</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 5: O2 Ritz & Conciertos Iniciales -->
+      <div class="collage-item hitos transform" style="--r: -3deg;" onclick="openModal('ritz')">
+        <div class="polaroid cursor-pointer">
+          <div class="w-full h-64 overflow-hidden bg-zinc-200 relative">
+            <div class="absolute -top-3 left-1/3 -translate-x-1/2 w-22 h-6 tape opacity-80 z-10" style="transform: rotate(4deg);"></div>
+            <img src="https://images.unsplash.com/photo-1780482530807-cd90e9f14f57?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Whitworth Street Manchester near O2 Ritz" class="w-full h-full object-cover grayscale contrast-115 hover:grayscale-0">
+          </div>
+          <div class="mt-4 text-center">
+            <p class="font-marker text-xl tracking-wide text-zinc-900">O2 Ritz Manchester</p>
+            <p class="text-[11px] text-zinc-500 uppercase tracking-widest mt-1">Parada #5 • El debut de 1982</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 6: Punto de Inicio - Vinyl Revival -->
+      <div class="collage-item canciones transform" style="--r: 1deg;" onclick="openModal('vinyl')">
+        <div class="polaroid cursor-pointer">
+          <div class="w-full h-64 overflow-hidden bg-zinc-200 relative">
+            <div class="absolute -top-2 right-4 w-16 h-6 tape opacity-80 z-10" style="transform: rotate(-15deg);"></div>
+            <img src="https://images.unsplash.com/photo-1770344653483-6cfbfd136f92?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" alt="Vinyl Records Collection Aesthetic" class="w-full h-full object-cover grayscale contrast-120 hover:grayscale-0">
+          </div>
+          <div class="mt-4 text-center">
+            <p class="font-marker text-xl tracking-wide text-zinc-900">Vinyl Revival</p>
+            <p class="text-[11px] text-zinc-500 uppercase tracking-widest mt-1">L'inici del tour • Northern Quarter</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- VENTANA MODAL DETALLADA -->
+  <div id="details-modal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4 transition-opacity duration-300 opacity-0">
+    <div class="bg-zinc-900 border border-zinc-700 max-w-2xl w-full rounded-2xl overflow-hidden shadow-2xl relative max-h-[90vh] flex flex-col">
+      
+      <!-- Cabecera del modal -->
+      <div class="p-4 border-b border-zinc-800 flex justify-between items-center bg-zinc-950">
+        <span id="modal-tag" class="text-[11px] font-mono tracking-widest bg-zinc-800 text-amber-400 px-2.5 py-0.5 rounded uppercase">Categoria</span>
+        <button onclick="closeModal()" class="text-zinc-400 hover:text-white transition text-xl font-bold bg-zinc-800 hover:bg-zinc-700 w-8 h-8 rounded-full flex items-center justify-center">&times;</button>
+      </div>
+
+      <!-- Contenido scrolleable -->
+      <div class="overflow-y-auto p-6 space-y-6">
+        <h2 id="modal-title" class="text-3xl font-vintage text-white">Títol del Lloc</h2>
+        
+        <!-- Bloque de Letra de Canción Inspirada -->
+        <div id="modal-lyrics-box" class="border-l-4 border-amber-500 bg-amber-500/5 p-4 rounded-r-xl italic text-sm text-zinc-300">
+          <p id="modal-lyrics">"Lletra de la cançó..."</p>
+          <span id="modal-song" class="block text-right text-xs text-amber-400 font-bold font-mono mt-2">— Cançó</span>
+        </div>
+
+        <!-- Descripción histórica -->
+        <div class="space-y-3">
+          <h4 id="modal-desc-title" class="text-xs uppercase tracking-wider text-zinc-400 font-bold font-mono">Història:</h4>
+          <p id="modal-description" class="text-sm text-zinc-300 leading-relaxed">Descripció detallada del lloc...</p>
+        </div>
+
+        <!-- Datos del Recorrido -->
+        <div class="grid grid-cols-2 gap-4 bg-zinc-950 p-4 rounded-xl border border-zinc-800 text-xs">
+          <div>
+            <span id="modal-label-address" class="block text-zinc-500 font-mono">📍 ADREÇA:</span>
+            <span id="modal-address" class="text-zinc-300 font-bold">Adreça real</span>
+          </div>
+          <div>
+            <span id="modal-label-tour" class="block text-zinc-500 font-mono">🕒 AL TOUR:</span>
+            <span id="modal-tour-info" class="text-zinc-300 font-bold">Detall de la parada</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPT LOGIC -->
+  <script>
+    const dataSitios = {
+      hotel: {
+        title: "Allotjament: Motel One Manchester-Royal Exchange",
+        tag: "Estada Inclosa",
+        lyrics: "“There is a light that never goes out... I s'encendrà en ple centre de Manchester!”",
+        song: "La nostra estada confort a Cross Street",
+        descTitle: "La nostra base d'operacions en ple centre:",
+        description: "El nostre hotel definitiu és el Motel One Manchester-Royal Exchange, ubicat a la cèntrica Cross Street. El gran atractiu visual que veurem només sortir per la porta és el majestuós edificio del Royal Exchange Theatre, amb la seva icònica arquitectura neoclàssica i la seva gran torre del rellotge victoriana. L'interior de l'hotel ret homenatge al passat industrial tèxtil de la ciutat (la cèlebre 'Cottonopolis'), decorat amb espectaculars arcs d'acer de seis metres d'alçada, bobines de fil gegants i obres d'art fetes de paper texturitzat. A més, estarem en un entorn immillorable a un pas de la plaza St Ann's Square i a només 7-10 minuts caminant de Vinyl Revival per començar el nostre tour.",
+        address: "11-15 Cross Street, Manchester M2 1WD",
+        tourInfo: "Estada confirmed en ple centre."
+      },
+      pubfeast: {
+        title: "El nostre festí: Pastís tradicional i bona birra",
+        tag: "Festí",
+        lyrics: "“Chips, gravy and proper northern pies... Ens posarem cecs de menjar i beure!”",
+        song: "La tradició dels pubs de Manchester",
+        descTitle: "El nostre tiberi tradicional:",
+        description: "No podem viatjar a Manchester sense gaudir de valent de la cuina més autèntica als seus autèntics pubs tradicionals. El plat per excel·lència serà el clàssic 'Meat and Potato Pie' (pastís tradicional de carn i patates) o un delicioso pastís de vedella estofada com l'icònic plat de salsitxes servit dins d'un colossal bol de pudin de Yorkshire que veiem a la imatge, acompanyat de puré de patates ('mash'), verdura de temporada i un riu de salsa 'gravy' calenta i molt espessa. Per baixar aquest autèntic tiberi del nord, gaudirem de les millors cerveses artesanes de fàbriques locales com Cloudwater o d'una pinta clàssica de Boddingtons Bitter ben tirada. Bares històrics vius com Mr Thomas's Chophouse, Sam's Chophouse o pubs alternatius com The Bay Horse Tavern al Northern Quarter o el preciós The Marble Arch Inn són els llocs perfectes que visitarem per viure aquesta joia gastronòmica reconfortant.",
+        address: "Thomas St (Northern Quarter) / 52 Pall Mall St",
+        tourInfo: "El nostre sopar de pub tradicional."
+      },
+      cathedral: {
+        title: "Catedral de Manchester",
+        tag: "Catedral",
+        lyrics: "“Un oasi gòtic i medieval inalterat al vibrant centre de la ciutat moderna.”",
+        song: "Joies de la ciutat",
+        descTitle: "Patrimoni històric obligatori:",
+        description: "Situada a Victoria Street, la Catedral de Manchester és un impressionant vestigi medieval que es remunta originalment a l'any 1421. Aquest majestuós monument d'estil gòtic perpendicular (Grau I) destaca per tenir una de les col·leccions de cadirats de cor de fusta tallada del segle XVI més espectaculars del nord d'Europa, famosos per amagar figures trapelles i fantàstiques esculpides sota els seients plegables. Més enllà de la seva bellesa visual, posseeix una acústica espléndida que la converteix de forma regular en un prestigiós escenari per a concerts il·luminats per espelmes i esdeveniments de caràcter multicultural. Com a dada fascinant, va sobreviure miraculosament a l'impacte d'una bomba directa durant la Segona Guerra Mundial.",
+        address: "Victoria St, Manchester M3 1SX",
+        tourInfo: "Entrada general gratuïta (Suggerit donatiu de £5)."
+      },
+      science: {
+        title: "Museu de Ciència i Indústria",
+        tag: "Ciència i Indústria",
+        lyrics: "“El racó històric universal on Manchester va encendre els motors de la Revolució Industrial.”",
+        song: "Bressol de la innovació",
+        descTitle: "Cultura científica i industrial de Manchester:",
+        description: "Assentat de forma icònica sobre els terrenys de l'antiga Liverpool Road Station (1830), es tracta de lestació de ferrocarril interurbà de passatgers més antiga que es conserva en tot el planeta. Las exposicions exploren a fons com la ciutat va liderar la revolució com a potència tèxtil del cotó ('Cottonopolis'), exhibint colossals locomotores de vapor en funcionament a la seva galeria Power Hall recentment reformada i els primers prototips de la computació digital moderna. Una visita fascinant i altament educativa.",
+        address: "Liverpool Rd, Manchester M3 4JP",
+        tourInfo: "Entrada lliure gratuïta sense necessitat de reserva prèvia."
+      },
+      salford: {
+        title: "Salford Lads Club",
+        tag: "Portadas i icones",
+        lyrics: "“This club hosted the legendary 1985 inner sleeve photo for 'The Queen Is Dead'.”",
+        song: "The Queen Is Dead (Art de l'àlbum)",
+        descTitle: "Història i rellevància:",
+        description: "Inaugurat el 1903, aquest legendari edifici eduardià de maó vermell va cobrar fama mundial gràcies a la sessió fotogràfica de Stephen Wright. El tour oficial inclou accés exclusiu a 'The Smiths Room', un santariu replet d'objectes, cartes i fotos deixades per fans de tot el món. Els voluntaris locals ens rebran amb un té o cafè calent.",
+        address: "St Ignatius Walk, Salford M5 3RX",
+        tourInfo: "Parada principal amb accés a l'interior (1 hora aprox.)"
+      },
+      strangeways: {
+        title: "Presó de Strangeways",
+        tag: "Portadas i icones",
+        lyrics: "“Strangeways, Here We Come.”",
+        song: "Strangeways, Here We Come (1987)",
+        descTitle: "Història i rellevància:",
+        description: "Aquesta imponent presó de l'època victoriana amb la seva famosa torre de ventilació va inspirar directament el títol del quart i últim àlbum d'estudi de la banda. Al ser una presó estatal activa, no és possible entrar-hi, pero el nostre autobús del tour s'aturarà davant els seus colossals muros perquè puguem comentar les anècdotes de la seva gravació i fer fotos spectaculars de la seva silueta urbana.",
+        address: "Southall St, Manchester M60 9AH",
+        tourInfo: "Parada fotogràfica des de l'autobús guiat."
+      },
+      cemetery: {
+        title: "Southern Cemetery",
+        tag: "Inspiració de lletres",
+        lyrics: "“A dreadfully sunny day / So I meet you at the cemetry gates / Keats and Yeats are on your side...”",
+        song: "Cemetry Gates",
+        descTitle: "Història i rellevància:",
+        description: "És el cementiri municipal més gran del Regne Unit. A principis dels anys 80, un jove Morrissey passejava amb freqüència entre aquestes tombes victorianes, debatent sobre poesia romàntica i lletres gòtiques. Aquestes caminades van inspirar una de les cançons més brillants i lluminoses de l'àlbum 'The Queen Is Dead'.",
+        address: "Barlow Moor Rd, Manchester M21 7GZ",
+        tourInfo: "Passeig a peu guiat pels senders històrics."
+      },
+      bridge: {
+        title: "The Iron Bridge",
+        tag: "Inspiració de lletres",
+        lyrics: "“Under the iron bridge we kissed / Even though we ended up with sore lips / I am diseased, and I am pleased...”",
+        song: "Still Ill",
+        descTitle: "Història i rellevància:",
+        description: "Aquest pont de ferro estructural, situat a prop de la casa de la infància de Morrissey a Stretford, forma part de la mitologia geogràfica urbana de la banda. Representa perfectament la melancolia industrial de Manchester que xopa les composicions dels premiers discos del grup.",
+        address: "Kings Road, Stretford, Manchester",
+        tourInfo: "Parada tècnica i punt fotogràfic nostàlgic."
+      },
+      ritz: {
+        title: "O2 Ritz Manchester",
+        tag: "Portadas i icones",
+        lyrics: "“The ritz ballroom dancefloor bounced as the band took the stage for their historic live debut on October 4, 1982.”",
+        song: "Primer concert oficial",
+        descTitle: "Història i rellevància:",
+        description: "La mítica sala de ball amb terra de molles elàstiques de Whitworth Street va presenciar el naixement en directe de The Smiths, quan van actuar com a teloners de Blue Rondo à la Turk. És una joia de la vida nocturna de Manchester indispensable per entender l'evolució del so indie pop.",
+        address: "Whitworth St West, Manchester M1 5NQ",
+        tourInfo: "Rellevància històrica comentada durant el recorregut pel centre."
+      },
+      vinyl: {
+        title: "Vinyl Revival Store",
+        tag: "Inspiración de lletres",
+        lyrics: "“Manchester's Northern Quarter record stores preserve the physical vinyl heritage that defined the 80s indie labels.”",
+        song: "Punt de trobada oficial",
+        descTitle: "Història i rellevància:",
+        description: "Aquesta mítica botiga de discos independent situada al cor del vibrant Northern Quarter serveix com al nostre punt de trobada oficial abans de pujar a l'autobús del tour de música. És el lloc perfecte per fullejar vinils clàssics, pòsters antics i xerrar com melòmans locales abans de començar el nostre viatge pel llegat de Craig Gill.",
+        address: "28 Oldham St, Northern Quarter, M1 1JN",
+        tourInfo: "Punto de trobada i sortida (10:45 AM)."
+      }
+    };
+
+    function openModalOrTour(id) {
+      if (id === 'tour') {
+        showTourView();
+      } else {
+        openModal(id);
+      }
+    }
+
+    function showTourView() {
+      document.getElementById('view-main').classList.add('hidden');
+      const tourView = document.getElementById('view-tour');
+      tourView.classList.remove('hidden');
+      tourView.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function showMainView() {
+      document.getElementById('view-tour').classList.add('hidden');
+      document.getElementById('view-main').classList.remove('hidden');
+    }
+
+    // GESTIÓ SÚPER ROBUSTA DEL HOVER EN MÒBILS (TOUCH) I ORDINADOR
+    document.querySelectorAll('.polaroid').forEach(card => {
+      // Funció genèrica per encendre el color
+      const turnOnColor = () => {
+        const img = card.querySelector('img');
+        if(img) img.style.filter = 'grayscale(0%) contrast(100%)';
+      };
+
+      // Funció genèrica per apagar el color (segons la targeta)
+      const turnOffColor = () => {
+        const img = card.querySelector('img');
+        if(img) {
+          if(card.closest('.border-emerald-600\\/30')) {
+            img.style.filter = 'grayscale(100%) contrast(110%)';
+          } else if(card.closest('.border-amber-500\\/40')) {
+            img.style.filter = 'grayscale(100%) contrast(125%)';
+          } else {
+            img.style.filter = 'grayscale(100%) contrast(115%)';
+          }
+        }
+      };
+
+      // Esdeveniments per a ratolí (Ordinador)
+      card.addEventListener('mouseenter', turnOnColor);
+      card.addEventListener('mouseleave', turnOffColor);
+
+      // OPTIMITZACIÓ CLAU MÒBIL: El toc del dit simula el hover abans del click
+      card.addEventListener('touchstart', () => {
+        // Apaguem primer totes les altres targetes per netejar l'efecte del dit anterior
+        document.querySelectorAll('.polaroid img').forEach(otherImg => {
+          const parentCard = otherImg.closest('.polaroid');
+          if(parentCard && parentCard !== card) {
+            if(parentCard.closest('.border-emerald-600\\/30')) {
+              otherImg.style.filter = 'grayscale(100%) contrast(110%)';
+            } else if(parentCard.closest('.border-amber-500\\/40')) {
+              otherImg.style.filter = 'grayscale(100%) contrast(125%)';
+            } else {
+              otherImg.style.filter = 'grayscale(100%) contrast(115%)';
+            }
+          }
+        });
+        turnOnColor();
+      }, { passive: true });
+    });
+
+    function openModal(id) {
+      const sitio = dataSitios[id];
+      if (!sitio) return;
+
+      document.getElementById('modal-title').innerText = sitio.title;
+      document.getElementById('modal-tag').innerText = sitio.tag;
+      document.getElementById('modal-lyrics').innerText = sitio.lyrics;
+      document.getElementById('modal-song').innerText = "— " + sitio.song;
+      document.getElementById('modal-desc-title').innerText = sitio.descTitle || "Història:";
+      document.getElementById('modal-description').innerText = sitio.description;
+      document.getElementById('modal-address').innerText = sitio.address;
+      document.getElementById('modal-tour-info').innerText = sitio.tourInfo;
+
+      if(id === 'hotel') {
+        document.getElementById('modal-label-address').innerText = "📍 UBICACIÓ:";
+        document.getElementById('modal-label-tour').innerText = "🕒 RÈGIM:";
+      } else {
+        document.getElementById('modal-label-address').innerText = "📍 ADREÇA:";
+        document.getElementById('modal-label-tour').innerText = "🕒 AL TOUR:";
+      }
+
+      const modal = document.getElementById('details-modal');
+      modal.classList.remove('hidden');
+      setTimeout(() => {
+        modal.classList.remove('opacity-0');
+      }, 10);
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('details-modal');
+      modal.classList.add('opacity-0');
+      setTimeout(() => {
+        modal.classList.add('hidden');
+      }, 300);
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById('details-modal');
+      if (event.target == modal) {
+        closeModal();
+      }
+    }
+
+    function filterCollage(category) {
+      const items = document.querySelectorAll('.collage-item');
+      const buttons = ['all', 'hitos', 'canciones'];
+      
+      buttons.forEach(btn => {
+        const el = document.getElementById('btn-' + btn);
+        if (!el) return;
+        if (btn === category) {
+          el.classList.remove('bg-zinc-800', 'text-zinc-400', 'border-zinc-700');
+          el.classList.add('bg-amber-500', 'text-black', 'border-amber-500');
+        } else {
+          el.classList.remove('bg-amber-500', 'text-black', 'border-amber-500');
+          el.classList.add('bg-zinc-800', 'text-zinc-400', 'border-zinc-700');
+        }
+      });
+
+      items.forEach(item => {
+        if (item.classList.contains('alojamiento')) return;
+        if (category === 'all' || item.classList.contains(category)) {
+          item.style.display = 'block';
+          setTimeout(() => { item.style.opacity = '1'; item.style.transform = 'scale(1)'; }, 10);
+        } else {
+          item.style.opacity = '0';
+          item.style.transform = 'scale(0.95)';
+          setTimeout(() => { item.style.display = 'none'; }, 300);
+        }
+      });
+    }
+  </script>
+</body>
+</html>
